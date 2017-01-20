@@ -9,6 +9,7 @@ And the code here is the solutions of these training problems.
 # Organization
 
 The organization here is very straight-forward.
+
 These folders are corresponding to the chapters of the training program.
 
 # Content

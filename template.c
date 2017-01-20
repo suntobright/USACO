@@ -3,6 +3,7 @@ ID: suntobr1
 LANG: C
 TASK:
 */
+
 #include <stdio.h>
 
 int main(void)
@@ -11,6 +12,7 @@ int main(void)
   FILE* fout = fopen(".out", "wb");
 
   fclose(fin);
+  fflush(fout);
   fclose(fout);
 
   return 0;
