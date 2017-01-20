@@ -8,15 +8,18 @@ And the code here is the solutions of these training problems.
 
 # Organization
 
-The Organization here is very straight-forward. These folders are corresponding to the sections of training program.
+The organization here is very straight-forward.
+These folders are corresponding to the chapters of the training program.
 
 # Content
 
 All code under master branch has passed the tests from the website.
 
-These code here is not whole completed, since my training is still in progress. I will update if I get some time.
+These code here is not whole completed, since my training is still in progress.
+I will update if I get some time.
 
-I'm sorry for the missing comments. I hope the code will help your training.
+I'm sorry for the missing comments.
+I hope the code will help your training.
 
 # Contact
 
