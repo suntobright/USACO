@@ -97,37 +97,13 @@ int getMaxFlow() {
   return maxFlow;
 }
 
-void getKeyRoutes(int maxFlow) {
-  int i = 0;
-
-  if (maxFlow == 0) {
-    return;
-  }
-
-  for (i = 0; i < routeCount; i ++) {
-    if (isPicked[i] == 0) {
-      int currentMaxFlow = 0;
-
-      costs[routes[sortedRoutes[i]][0]][routes[sortedRoutes[i]][1]] -= routes[sortedRoutes[i]][2];
-      currentMaxFlow = getMaxFlow();
-      if (currentMaxFlow + routes[sortedRoutes[i]][2] == maxFlow) {
-        totalCost += routes[sortedRoutes[i]][2];
-        keyRoutes[keyRouteCount ++] = sortedRoutes[i];
-        isPicked[i] = 1;
-        return getKeyRoutes(currentMaxFlow);
-      } else {
-        costs[routes[sortedRoutes[i]][0]][routes[sortedRoutes[i]][1]] += routes[sortedRoutes[i]][2];
-      }
-    }
-  }
-}
-
 int main(void)
 {
   FILE* fin = fopen("milk6.in", "rb");
   FILE* fout = fopen("milk6.out", "wb");
 
   int i = 0;
+  int maxFlow = 0;
 
   fscanf(fin, "%d%d", &n, &routeCount);
   for (i = 0; i < routeCount; i ++) {
@@ -142,7 +118,20 @@ int main(void)
   }
   qsort(sortedRoutes, routeCount, sizeof(int), cmp1);
 
-  getKeyRoutes(getMaxFlow());
+  maxFlow = getMaxFlow();
+  for (i = 0; i < routeCount && maxFlow > 0; i ++) {
+    int currentMaxFlow = 0;
+
+    costs[routes[sortedRoutes[i]][0]][routes[sortedRoutes[i]][1]] -= routes[sortedRoutes[i]][2];
+    currentMaxFlow = getMaxFlow();
+    if (currentMaxFlow + routes[sortedRoutes[i]][2] == maxFlow) {
+      totalCost += routes[sortedRoutes[i]][2];
+      keyRoutes[keyRouteCount ++] = sortedRoutes[i];
+      maxFlow = currentMaxFlow;
+    } else {
+      costs[routes[sortedRoutes[i]][0]][routes[sortedRoutes[i]][1]] += routes[sortedRoutes[i]][2];
+    }
+  }
 
   qsort(keyRoutes, keyRouteCount, sizeof(int), cmp2);
 
