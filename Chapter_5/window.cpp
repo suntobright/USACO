@@ -1,6 +1,6 @@
 /*
 ID: suntobr1
-LANG: C++
+LANG: C++11
 TASK: window
 */
 
@@ -129,10 +129,8 @@ void cover(Rect& top) {
 
     list<Rect> visibles = rect.getVisible(top);
 
-    for (list<Rect>::iterator iter = visibles.begin();
-        iter != visibles.end();
-        iter ++) {
-      rects.push_back(*iter);
+    for (Rect& rect : visibles) {
+      rects.push_back(rect);
     }
   }
 }
@@ -157,8 +155,8 @@ void show() {
   }
 
   int visibleArea = 0;
-  for (list<Rect>::iterator it = rects.begin(); it != rects.end(); it ++) {
-    visibleArea += it->area();
+  for (Rect& rect : rects) {
+    visibleArea += rect.area();
   }
   rects.clear();
 
