@@ -4,7 +4,7 @@ LANG: C++11
 TASK:
 */
 
-#include <stdio.h>
+#include <cstdio>
 
 using namespace std;
 
