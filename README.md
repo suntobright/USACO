@@ -16,9 +16,6 @@ These folders are corresponding to the chapters of the training program.
 
 All code under master branch has passed the tests from the website.
 
-These code here is not whole completed, since my training is still in progress.
-I will update if I get some time.
-
 I'm sorry for the missing comments.
 I hope the code will help your training.
 
